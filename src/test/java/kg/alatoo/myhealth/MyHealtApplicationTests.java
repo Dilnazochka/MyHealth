@@ -1,4 +1,4 @@
-package kg.alatoo.myhealt;
+package kg.alatoo.myhealth;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

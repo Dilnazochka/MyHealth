@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"></head>
+<body>
+<div class="container">
+    <h3>Welcome, <span th:text="${userName}">User</span></h3>
+    <div class="row">
+        <div class="col-md-8">
+            <h5>Recent Tests</h5>
+            <table class="table">
+                <thead><tr><th>Type</th><th>Value</th><th>Date</th><th>Actions</th></tr></thead>
+                <tbody>
+                <tr th:each="t : ${tests}">
+                    <td th:text="${t.testType}"></td>
+                    <td th:text="${t.value} + ' ' + ${t.unit}"></td>
+                    <td th:text="${#dates.format(t.createdAt,'yyyy-MM-dd HH:mm')}"></td>
+                    <td>
+                        <a th:href="@{/tests/details/{id}(id=${t.id})}" class="btn btn-sm btn-primary">Details</a>
+                        <a th:href="@{/tests/edit/{id}(id=${t.id})}" class="btn btn-sm btn-secondary">Edit</a>
+                        <a th:href="@{/tests/delete/{id}(id=${t.id})}" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <h5 th:if="${chartType}">Trend: <span th:text="${chartType}"></span></h5>
+            <canvas id="testChart" th:if="${chartValues}"></canvas>
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+                var labels = [[${chartLabels}]];
+                var values = [[${chartValues}]];
+                /*]]>*/
+            </script>
+            <script src="/js/chart-init.js"></script>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

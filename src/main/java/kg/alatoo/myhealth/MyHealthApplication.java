@@ -1,13 +1,12 @@
-package kg.alatoo.myhealt;
+package kg.alatoo.myhealth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyHealtApplication {
+public class MyHealthApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MyHealtApplication.class, args);
+        SpringApplication.run(MyHealthApplication.class, args);
     }
-
 }

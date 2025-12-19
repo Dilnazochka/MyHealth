@@ -1,0 +1,16 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"></head>
+<body>
+<div class="container">
+    <h3>Login</h3>
+    <form method="post" action="/login">
+        <div class="mb-3"><label>Email</label><input class="form-control" name="username"/></div>
+        <div class="mb-3"><label>Password</label><input type="password" class="form-control" name="password"/></div>
+        <button class="btn btn-primary">Login</button>
+        <a href="/register" class="btn btn-link">Register</a>
+    </form>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
